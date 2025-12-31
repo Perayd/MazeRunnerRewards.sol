@@ -1,0 +1,9 @@
+function onMazeCompleted(playerAddress) {
+  fetch("/sign-win", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      player: playerAddress
+    })
+  });
+}
