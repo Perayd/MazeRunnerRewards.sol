@@ -1,0 +1,16 @@
+import { ethers } from "ethers";
+
+const signerWallet = new ethers.Wallet(process.env.PRIVATE_KEY);
+
+async function signWin(player, nonce, contractAddress) {
+  const hash = ethers.solidityPackedKeccak256(
+    ["address", "uint256", "address"],
+    [player, nonce, contractAddress]
+  );
+
+  const signature = await signerWallet.signMessage(
+    ethers.getBytes(hash)
+  );
+
+  return signature;
+}
