@@ -1,0 +1,13 @@
+import { ethers } from "ethers";
+
+const contract = new ethers.Contract(
+  CONTRACT_ADDRESS,
+  ABI,
+  signer
+);
+
+await contract.claimWin(
+  playerAddress,
+  nonce,
+  signature
+);
